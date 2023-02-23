@@ -1,4 +1,4 @@
-import sys
+from sys import exit
 
 class Quit:
 
@@ -8,7 +8,7 @@ class Quit:
 
     def main(status=0):
         print("Bye.")
-        sys.exit(status)
+        exit(status)
 
 
 if __name__ == "__main__":
