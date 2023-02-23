@@ -1,10 +1,9 @@
 #!/bin/env python3
 from tools.Quit import Quit
 
-options = (
+tools = (
     {"name": Quit.NAME, "desc": Quit.DESC, "exec": Quit.main},
 )
-
 
 print("""
  _______________
@@ -13,16 +12,21 @@ print("""
 |    Toolbox    |
 |_______________|
 """)
-userSel = None
+
+selected_tool = None
+
 while True:
-    for index, tool in enumerate(options):
+    for index, tool in enumerate(tools):
         print("{}) {}    -    {}".format(index, tool["name"], tool["desc"]))
 
-    inputStr = input("Select tool (number): ")
-    if len(inputStr) > 0:
-        userSel = int(inputStr)
-        if userSel > -1 and userSel < len(options):
+    input_str = input("Select tool (number): ")
+    if input_str.isdigit():
+        
+        selected_tool = int(input_str)
+        
+        if selected_tool > -1 and selected_tool < len(tools):
             break
-    print("\nPlease select a number in the list.")
 
-options[userSel]["exec"]()
+    print("\nUnknown option. Please try again.\n")
+
+tools[selected_tool]["exec"]()
