@@ -1,8 +1,8 @@
-import sys
-import tools.Quit
+#!/bin/env python3
+from tools.Quit import Quit
 
 options = (
-    {"name": tools.Quit.NAME, "desc": tools.Quit.DESC, "exec": tools.Quit.main},
+    {"name": Quit.NAME, "desc": Quit.DESC, "exec": Quit.main},
 )
 
 
@@ -10,10 +10,10 @@ print("""
  _______________
 |    _/¯¯¯\_    |
 |---------------|
-|    FromeXo    |
+|    Toolbox    |
 |_______________|
 """)
-
+userSel = None
 while True:
     for index, tool in enumerate(options):
         print("{}) {}    -    {}".format(index, tool["name"], tool["desc"]))
