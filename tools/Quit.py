@@ -1,5 +1,6 @@
 from sys import exit
 
+
 class Quit:
 
     NAME = "Quit"
