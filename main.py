@@ -7,7 +7,7 @@ tools = (
 
 print("""
  _______________
-|    _/¯¯¯\_    |
+|    _/¯¯¯\\_    |
 |---------------|
 |    Toolbox    |
 |_______________|
@@ -21,9 +21,9 @@ while True:
 
     input_str = input("Select tool (number): ")
     if input_str.isdigit():
-        
+
         selected_tool = int(input_str)
-        
+
         if selected_tool > -1 and selected_tool < len(tools):
             break
 
