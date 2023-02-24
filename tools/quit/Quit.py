@@ -7,9 +7,9 @@ class Quit:
     DESC = "Exit out of the program."
     VERS = "1.0.0"
 
-    def main(status=0):
+    def main():
         print("Bye.")
-        exit(status)
+        exit()
 
 
 if __name__ == "__main__":
