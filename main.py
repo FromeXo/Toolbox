@@ -1,10 +1,30 @@
 #!/bin/env python3
+import argparse
 from tools.quit.Quit import Quit
+from tools.dhcp.Dhcp import Dhcp
 
+# When done with a tool
+# True: show main menu
+# False: exit prog
+keep_session = True
+
+# Handle arguments
+parser = argparse.ArgumentParser(prog="ToolBox", description="Collection of tools")
+parser.add_argument("--tool", help="Directly load a tool", metavar="{tool}", dest="tool", required=False, default=None)
+args = parser.parse_args()
+
+# Tools
 tools = (
-    {"name": Quit.NAME, "desc": Quit.DESC, "exec": Quit.main},
+    {"name": Dhcp.NAME, "desc": Dhcp.DESC, "exec": Dhcp.main},
+    {"name": Quit.NAME, "desc": Quit.DESC, "exec": Quit.main}
 )
 
+# Directly load tools
+if args.tool is not None:
+
+    for tool in tools:
+        if tool["name"].lower() == args.tool.lower():
+            keep_session=tool["exec"]()
 
 def welcome_msg():
     print("""
@@ -37,7 +57,7 @@ def prompt_for_tool(tools):
     return selected_tool
 
 
-keep_session = True
+
 while keep_session is True:
 
     welcome_msg()
